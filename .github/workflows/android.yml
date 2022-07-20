@@ -10,6 +10,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+defaults:
+  run:
+    working-directory: ./GNSSLogger
+    
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   test:
@@ -32,7 +36,7 @@ jobs:
         distribution: 'adopt'
         
     - name: Make gradlew executable
-      run: chmod +x ./GNSSLogger/gradlew
+      run: chmod +x ./gradlew
 
     - name: run tests
       uses: reactivecircus/android-emulator-runner@v2
@@ -41,4 +45,4 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
-        script: ./GNSSLogger/gradlew test check connectedCheck -x lint --stacktrace
+        script: ./gradlew test check connectedCheck -x lint --stacktrace
