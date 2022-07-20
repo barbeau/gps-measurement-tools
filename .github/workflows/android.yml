@@ -21,12 +21,18 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
+      
+    - name: Gradle Wrapper Validation
+      uses: gradle/wrapper-validation-action@v1.0.4
 
     - name: Setup Java
       uses: actions/setup-java@v2
       with:
         java-version: 11
         distribution: 'adopt'
+        
+    - name: Make gradlew executable
+      run: chmod +x ./GNSSLogger/gradlew
 
     - name: run tests
       uses: reactivecircus/android-emulator-runner@v2
