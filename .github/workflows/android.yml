@@ -15,7 +15,7 @@ env:
 
 defaults:
   run:
-    working-directory: $WORKING_DIRECTORY
+    working-directory: ${WORKING_DIRECTORY}
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -48,5 +48,5 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
-        working-directory: ${{env.WORKING_DIRECTORY}}
+        working-directory: ${WORKING_DIRECTORY}
         script: ./gradlew test check connectedCheck -x lint --stacktrace
