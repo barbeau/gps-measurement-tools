@@ -21,7 +21,6 @@ jobs:
     strategy:
       matrix:
         api-level: [24, 29]
-        target: [default, google_apis]
     steps:
     - name: checkout
       uses: actions/checkout@v2
@@ -42,7 +41,6 @@ jobs:
       uses: reactivecircus/android-emulator-runner@v2
       with:
         api-level: ${{ matrix.api-level }}
-        target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
         working-directory: ./GNSSLogger
