@@ -1,11 +1,15 @@
 name: Android CI Build
 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
+  # Triggers the workflow on push or pull request events but only for the master branch and only if files in the GNSSLogger directory is modified
   push:
     branches: [ master ]
+    paths:
+      - 'GNSSLogger/**'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'GNSSLogger/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
